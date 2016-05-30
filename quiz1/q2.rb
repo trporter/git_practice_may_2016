@@ -2,25 +2,37 @@
 # while queing means that the last item added will be the last item to be removed
 
 class Stack
-  array = []
-  array2 = [1,2,3,4,5]
+  attr_accessor :array
+  attr_accessor :array2
+
+  def initialize(array, array2)
+    @array = array
+    @array2 = array
+  end
+
   def add
-    array.unshift(array2[0])
+    @array.unshift(@array2[0])
   end
 
   def remove
-    array.shift(1)
+    @array.shift(1)
   end
 end
 
 class Queue
-  array3 = []
-  array4 = [6,7,8,9]
+  attr_accessor :array3
+  attr_accessor :array4
+
+  def initialize(array3, array4)
+    @array3 = array3
+    @array4 = array4
+  end
+
   def add
-    array3.push(array4[0])
+    @array3.push(@array4[0])
   end
 
   def remove
-    array3.shift(1)
+    @array3.shift(1)
   end
 end
