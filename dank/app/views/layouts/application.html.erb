@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Dank</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+  <!-- <a href="<%= about_path %>">About Us</a>
+  |
+  <a href="<%= about_url %>">About Us</a> -->
+  <%# link_to is a helper method that is built-in with Rails %>
+  <%= link_to "Home", new_question_path %>
+  |
+  <%= link_to "Q History", questions_path %>
+  |
+  <%= link_to("About Us", about_path) %>
+  |
+  <a href="<%= greet_path("Torri") %>">Greet Torri</a>
+  |
+  <%= link_to "Cowsay", cowsay_path %>
+  |
+  <%= link_to "Converter", tempconverter_path %>
+  |
+  <% if user_signed_in?%>
+    Hello, <%= current_user.first_name %>
+    <%= link_to "Sign Out", sessions_path, method: :delete %>
+  <% else %>
+    <%= link_to "Sign Up", new_user_path %>
+    |
+    <%= link_to "Sign In", new_session_path %>
+  <% end %>
+  <hr>
+
+  <% if flash[:notice] %>
+  <div class="flash-notice"><%= flash[:notice] %></div>
+  <% elsif flash[:alert] %>
+  <div class="flash-alert"><%= flash[:alert] %></div>
+  <% end %>
+<%= yield %>
+
+</body>
+</html>
